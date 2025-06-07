@@ -1,3 +1,26 @@
 spring:
   application:
     name: study_spring
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: ture  # delays running data.sql
+  # DATABASE
+  # test DB
+  datasource:
+    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1
+#    url: jdbc:h2:file:D:/database/h2/test;DB_CLOSE_DELAY=-1
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  # H2 DB setting
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  sql:
+    init:
+      mode: always
+      platform: h2
