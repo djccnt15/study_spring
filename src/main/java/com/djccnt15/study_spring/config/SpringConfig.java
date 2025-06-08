@@ -1,19 +1,18 @@
 package com.djccnt15.study_spring.config;
 
-import com.djccnt15.study_spring.db.repository.JdbcTemplateMemberRepository;
+import com.djccnt15.study_spring.db.repository.JpaMemberRepository;
 import com.djccnt15.study_spring.db.repository.MemberRepository;
 import com.djccnt15.study_spring.domain.member.service.MemberServiceBean;
+import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.sql.DataSource;
 
 @Configuration
 public class SpringConfig {
     
     @Autowired
-    private DataSource dataSource;
+    private EntityManager em;
     
     @Bean
     public MemberServiceBean memberServiceBean() {
@@ -24,6 +23,7 @@ public class SpringConfig {
     public MemberRepository memberRepositoryBean() {
         // return new MemoryMemberRepositoryBean();
         // return new JdbcMemberRepository(dataSource);
-        return new JdbcTemplateMemberRepository(dataSource);
+        // return new JdbcTemplateMemberRepository(dataSource);z
+        return new JpaMemberRepository(em);
     }
 }

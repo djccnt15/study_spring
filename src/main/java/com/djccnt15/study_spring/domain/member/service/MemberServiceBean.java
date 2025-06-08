@@ -2,10 +2,12 @@ package com.djccnt15.study_spring.domain.member.service;
 
 import com.djccnt15.study_spring.db.model.MemberEntity;
 import com.djccnt15.study_spring.db.repository.MemberRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 public class MemberServiceBean {
     
     private final MemberRepository memberRepository;
