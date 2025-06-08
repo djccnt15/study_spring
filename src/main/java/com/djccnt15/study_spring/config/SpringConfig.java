@@ -1,6 +1,6 @@
 package com.djccnt15.study_spring.config;
 
-import com.djccnt15.study_spring.db.repository.JdbcMemberRepository;
+import com.djccnt15.study_spring.db.repository.JdbcTemplateMemberRepository;
 import com.djccnt15.study_spring.db.repository.MemberRepository;
 import com.djccnt15.study_spring.domain.member.service.MemberServiceBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +23,7 @@ public class SpringConfig {
     @Bean
     public MemberRepository memberRepositoryBean() {
         // return new MemoryMemberRepositoryBean();
-        return new JdbcMemberRepository(dataSource);
+        // return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
