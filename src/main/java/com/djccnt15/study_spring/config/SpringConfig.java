@@ -1,29 +1,28 @@
 package com.djccnt15.study_spring.config;
 
-import com.djccnt15.study_spring.db.repository.JpaMemberRepository;
+import com.djccnt15.study_spring.aop.TimeTraceAop;
 import com.djccnt15.study_spring.db.repository.MemberRepository;
 import com.djccnt15.study_spring.domain.member.service.MemberServiceBean;
-import jakarta.persistence.EntityManager;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@RequiredArgsConstructor
 public class SpringConfig {
     
-    @Autowired
-    private EntityManager em;
+    private final MemberRepository memberRepository;
     
     @Bean
     public MemberServiceBean memberServiceBean() {
-        return new MemberServiceBean(memberRepositoryBean());
+        return new MemberServiceBean(memberRepository);
     }
     
-    @Bean
-    public MemberRepository memberRepositoryBean() {
+    // @Bean
+    // public MemberRepository memberRepositoryBean() {
         // return new MemoryMemberRepositoryBean();
         // return new JdbcMemberRepository(dataSource);
         // return new JdbcTemplateMemberRepository(dataSource);z
-        return new JpaMemberRepository(em);
-    }
+        // return new JpaMemberRepository(em);
+    // }
 }

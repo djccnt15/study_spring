@@ -12,8 +12,8 @@ public class MemberServiceBean {
     
     private final MemberRepository memberRepository;
     
-    public MemberServiceBean(MemberRepository memberRepositoryBean) {
-        this.memberRepository = memberRepositoryBean;
+    public MemberServiceBean(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
     
     /**

@@ -1,7 +1,6 @@
 package com.djccnt15.study_spring.domain.member.service;
 
 import com.djccnt15.study_spring.db.model.MemberEntity;
-import com.djccnt15.study_spring.db.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class MemberServiceIntegratedTest {
     
     @Autowired MemberServiceBean memberServiceBean;
-    @Autowired MemberRepository memberRepositoryBean;
     
     @Test
     void join() {
