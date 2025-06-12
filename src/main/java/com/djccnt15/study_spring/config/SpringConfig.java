@@ -1,6 +1,5 @@
 package com.djccnt15.study_spring.config;
 
-import com.djccnt15.study_spring.aop.TimeTraceAop;
 import com.djccnt15.study_spring.db.repository.MemberRepository;
 import com.djccnt15.study_spring.domain.member.service.MemberServiceBean;
 import lombok.RequiredArgsConstructor;
