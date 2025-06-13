@@ -1,11 +1,13 @@
 package com.djccnt15.study_spring.db.repository;
 
+import com.djccnt15.study_spring.annotation.SubMemberRepository;
 import com.djccnt15.study_spring.db.model.MemberEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-// @Repository
+@Repository
+@SubMemberRepository
 public class MemoryMemberRepository implements MemberRepository {
     
     private static Map<Long, MemberEntity> store = new HashMap<>();
