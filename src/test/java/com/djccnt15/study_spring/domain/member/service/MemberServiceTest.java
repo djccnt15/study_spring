@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 
 class MemberServiceTest {
     
@@ -48,14 +49,14 @@ class MemberServiceTest {
         service.join(member1);
         
         // then
-        /*
+/*
         try {
-            memberService.join(member2);
-            org.junit.jupiter.api.Assertions.fail();
+            service.join(member2);
+            fail();
         } catch (IllegalStateException e) {
             assertThat(e.getMessage()).isEqualTo("already exist member name");
         }
-        */
+*/
         var e = assertThrows(
             IllegalStateException.class,
             () -> service.join(member2)

@@ -8,8 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/members")
 public class MemberControllerBean {
     
     private final MemberServiceBean memberServiceBean;
@@ -19,19 +21,19 @@ public class MemberControllerBean {
         this.memberServiceBean = memberServiceBean;
     }
     
-    @GetMapping("/members/new")
+    @GetMapping("/new")
     public String createMemberForm() {
         return "members/member-create-form";
     }
     
-    @PostMapping("/members/new")
+    @PostMapping("/new")
     public String createMember(MemberForm form) {
         var member = MemberEntity.builder().name(form.getName()).build();
         memberServiceBean.join(member);
-        return "redirect:/";
+        return "redirect:/member";
     }
     
-    @GetMapping("/members")
+    @GetMapping
     public String memberList(Model model) {
         var members = memberServiceBean.findMembers();
         model.addAttribute("members", members);
