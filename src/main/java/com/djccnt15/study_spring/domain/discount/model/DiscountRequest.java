@@ -1,6 +1,6 @@
 package com.djccnt15.study_spring.domain.discount.model;
 
-import com.djccnt15.study_spring.domain.discount.enums.MemberGrade;
+import com.djccnt15.study_spring.domain.discount.enums.MemberGradeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DiscountRequest {
 
-    private MemberGrade grade;
+    private MemberGradeEnum grade;
     
     private Integer price;
     
